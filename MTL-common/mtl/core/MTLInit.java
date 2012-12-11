@@ -2,20 +2,17 @@ package mtl.core;
 
 import java.io.File;
 
+import mtl.tileentities.TileEntityMTLever;
+import net.minecraft.src.Block;
+import net.minecraft.src.IBlockAccess;
+import net.minecraft.src.TileEntity;
+import net.minecraftforge.common.Configuration;
 import eurysmods.api.ICommonProxy;
 import eurysmods.api.ICore;
 import eurysmods.core.BlockRemover;
 import eurysmods.core.Core;
 import eurysmods.core.EurysCore;
 import eurysmods.core.RecipeRemover;
-import mtl.network.ServerPacketHandler;
-import mtl.tileentities.TileEntityMTLever;
-import net.minecraft.src.Block;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.IBlockAccess;
-import net.minecraft.src.ModLoader;
-import net.minecraft.src.TileEntity;
-import net.minecraftforge.common.Configuration;
 
 public class MTLInit {
 	public static ICore MTL;
@@ -30,7 +27,7 @@ public class MTLInit {
 		MTL.setModChannel("MTL");
 		MTLCore.configFile = new File(
 				MTLInit.MTL.getProxy().getMinecraftDir(),
-				"config/MultiTexturedLevers.cfg");
+					"config/MultiTexturedLevers.cfg");
 		MTLCore.configuration = new Configuration(MTLCore.configFile);
 		load();
 	}
@@ -52,8 +49,7 @@ public class MTLInit {
 		MTLCore.addRecipes();
 	}
 
-	public static int getDamageValue(IBlockAccess blockaccess, int x, int y,
-			int z) {
+	public static int getDamageValue(IBlockAccess blockaccess, int x, int y, int z) {
 		TileEntity tileentity = blockaccess.getBlockTileEntity(x, y, z);
 		if (tileentity != null && tileentity instanceof TileEntityMTLever) {
 			TileEntityMTLever tileentitymtlever = (TileEntityMTLever) tileentity;

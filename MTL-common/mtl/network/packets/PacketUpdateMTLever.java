@@ -1,9 +1,8 @@
 package mtl.network.packets;
 
-import eurysmods.network.packets.core.PacketTileEntityMT;
 import mtl.core.MTLInit;
 import mtl.tileentities.TileEntityMTLever;
-import net.minecraft.src.TileEntity;
+import eurysmods.network.packets.core.PacketTileEntityMT;
 
 public class PacketUpdateMTLever extends PacketTileEntityMT {
 	public PacketUpdateMTLever() {

@@ -1,8 +1,8 @@
 package mtl.proxy;
 
 import mtl.core.MTLCore;
-import mtl.core.MTLItemLevers;
 import mtl.core.MTLInit;
+import mtl.core.MTLItemLevers;
 import mtl.network.ClientPacketHandler;
 import mtl.render.RenderMTLever;
 import net.minecraft.client.Minecraft;
@@ -10,7 +10,6 @@ import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.ModLoader;
 import net.minecraft.src.TileEntity;
 import net.minecraftforge.client.MinecraftForgeClient;
-import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
@@ -26,7 +25,9 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void registerRenderInformation() {
 		MinecraftForgeClient.preloadTexture(MTLInit.MTL.getBlockSheet());
-		RenderingRegistry.registerBlockHandler(MTLCore.mtLeverBlockRenderID, new RenderMTLever());
+		RenderingRegistry.registerBlockHandler(
+				MTLCore.mtLeverBlockRenderID,
+				new RenderMTLever());
 	}
 
 	@Override
@@ -72,11 +73,7 @@ public class ClientProxy extends CommonProxy {
 		int playerX = (int) player.posX;
 		int playerY = (int) player.posY;
 		int playerZ = (int) player.posZ;
-		return MTLInit.getDamageValue(
-				mc.theWorld,
-				playerX,
-				playerY,
-				playerZ);
+		return MTLInit.getDamageValue(mc.theWorld, playerX, playerY, playerZ);
 	}
 
 	@Override

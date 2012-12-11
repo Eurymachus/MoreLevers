@@ -2,9 +2,6 @@ package mtl.core;
 
 import java.io.File;
 
-import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
-
 import mtl.blocks.BlockMTLever;
 import mtl.items.ItemMTLever;
 import mtl.tileentities.TileEntityMTLever;
@@ -14,7 +11,8 @@ import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.Configuration;
-
+import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 import eurysmods.api.ICommonProxy;
 
 public class MTLCore {
@@ -32,15 +30,14 @@ public class MTLCore {
 
 	public static void addItems() {
 		MTLBlocks.mtLever.id = configurationProperties();
-		MTLBlocks.mtLever.me = 
-				new BlockMTLever(
-						MTLBlocks.mtLever.id,
-						TileEntityMTLever.class,
-						0.5F,
-						Block.soundStoneFootstep,
-						true,
-						true,
-						"mtLever");
+		MTLBlocks.mtLever.me = new BlockMTLever(
+				MTLBlocks.mtLever.id,
+					TileEntityMTLever.class,
+					0.5F,
+					Block.soundStoneFootstep,
+					true,
+					true,
+					"mtLever");
 		GameRegistry.registerTileEntity(TileEntityMTLever.class, "mtLever");
 		for (MTLItemLevers lever : MTLItemLevers.values()) {
 			lever.me = new ItemStack(MTLBlocks.mtLever.me, 1, lever.stackID);
@@ -124,7 +121,7 @@ public class MTLCore {
 				Character.valueOf('X'),
 				Item.ingotIron,
 				Character.valueOf('Y'),
-				MTLItemLevers.cobbleStone.me});
+				MTLItemLevers.cobbleStone.me });
 
 		GameRegistry.addRecipe(MTLItemLevers.gold.me, new Object[] {
 				"X",
@@ -163,16 +160,14 @@ public class MTLCore {
 
 	public static int configurationProperties() {
 		configuration.load();
-		MTLBlocks.mtLever.id = Integer.parseInt(
-				configuration.get(
-						Configuration.CATEGORY_BLOCK,
-						"mtLever",
-						69).value);
-		mtLeverBlockRenderID = Integer.parseInt(
-				configuration.get(
-						Configuration.CATEGORY_GENERAL,
-						"mtLeverRenderID",
-						RenderingRegistry.getNextAvailableRenderId()).value);
+		MTLBlocks.mtLever.id = Integer.parseInt(configuration.get(
+				Configuration.CATEGORY_BLOCK,
+				"mtLever",
+				69).value);
+		mtLeverBlockRenderID = Integer.parseInt(configuration.get(
+				Configuration.CATEGORY_GENERAL,
+				"mtLeverRenderID",
+				RenderingRegistry.getNextAvailableRenderId()).value);
 		MTLBlocks.mtLever.name = "Multi-Textured Lever";
 		MTLItemLevers.iron.name = "Iron-Clad Lever";
 		MTLItemLevers.iron.stackID = 0;

@@ -2,10 +2,10 @@ package mtl.core;
 
 import mtl.network.MTLConnection;
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.PostInit;
 import cpw.mods.fml.common.Mod.PreInit;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -31,12 +31,12 @@ public class MultiTexturedLevers {
 
 	@Init
 	public void MultiTexturedLeversInit(FMLInitializationEvent event) {
-		
+
 	}
 
 	@PreInit
 	public void MultiTexturedLeversPreInit(FMLPreInitializationEvent event) {
-		
+
 	}
 
 	@PostInit

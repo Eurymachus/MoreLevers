@@ -36,7 +36,7 @@ public enum MTLItemLevers {
 		}
 		return -1;
 	}
-	
+
 	public static float getHardness(int itemDamage) {
 		for (MTLItemLevers itemstack : MTLItemLevers.values()) {
 			if (itemstack != null && itemstack.stackID == itemDamage) {
@@ -49,7 +49,7 @@ public enum MTLItemLevers {
 	public void setTextureIndex(int textureIndex) {
 		this.textureIndex = textureIndex;
 	}
-	
+
 	public void setBlockHardness(float hardness) {
 		this.hardness = hardness;
 	}
