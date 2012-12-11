@@ -173,7 +173,6 @@ public class MTLCore {
 						Configuration.CATEGORY_GENERAL,
 						"mtLeverRenderID",
 						RenderingRegistry.getNextAvailableRenderId()).value);
-
 		MTLBlocks.mtLever.name = "Multi-Textured Lever";
 		MTLItemLevers.iron.name = "Iron-Clad Lever";
 		MTLItemLevers.iron.stackID = 0;
@@ -183,7 +182,7 @@ public class MTLCore {
 		MTLItemLevers.gold.stackID = 1;
 		MTLItemLevers.gold.setTextureIndex(23);
 		MTLItemLevers.gold.setBlockHardness(1.5F);
-		MTLItemLevers.diamond.name = "Diamond-Lathered Lever";
+		MTLItemLevers.diamond.name = "Diamond-Encrusted Lever";
 		MTLItemLevers.diamond.stackID = 2;
 		MTLItemLevers.diamond.setTextureIndex(24);
 		MTLItemLevers.diamond.setBlockHardness(2.5F);

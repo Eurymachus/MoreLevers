@@ -5,26 +5,32 @@ import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
 import mtl.core.MTLCore;
 import mtl.core.MTLInit;
+import mtl.tileentities.TileEntityMTLever;
 import net.minecraft.src.Block;
 import net.minecraft.src.IBlockAccess;
 import net.minecraft.src.RenderBlocks;
 import net.minecraft.src.Tessellator;
+import net.minecraft.src.TileEntity;
 import net.minecraft.src.Vec3;
 @SideOnly(Side.CLIENT)
 public class RenderMTLever implements ISimpleBlockRenderingHandler {
 
-	public static boolean renderLeverBlock(Block par1Block, int par2, int par3,
-			int par4, RenderBlocks renderblocks, IBlockAccess iblockaccess) {
-        int var5 = iblockaccess.getBlockMetadata(par2, par3, par4);
+	public static boolean renderLeverBlock(
+			Block block,
+			int x,
+			int y,
+			int z,
+			RenderBlocks renderblocks,
+			IBlockAccess iblockaccess) {
+        int var5 = iblockaccess.getBlockMetadata(x, y, z);
         int var6 = var5 & 7;
         boolean var7 = (var5 & 8) > 0;
         Tessellator var8 = Tessellator.instance;
         boolean var9 = renderblocks.overrideBlockTexture >= 0;
-
         if (!var9)
         {
-        	renderblocks.overrideBlockTexture = par1Block.getBlockTexture(
-					iblockaccess, par2, par3, par4, 0);
+        	renderblocks.overrideBlockTexture = block.getBlockTexture(
+					iblockaccess, x, y, z, 0);
         }
 
         float var10 = 0.25F;
@@ -64,23 +70,23 @@ public class RenderMTLever implements ISimpleBlockRenderingHandler {
         	renderblocks.setRenderMinMax((double)(0.5F - var11), (double)(1.0F - var12), (double)(0.5F - var10), (double)(0.5F + var11), 1.0D, (double)(0.5F + var10));
         }
 
-        renderblocks.renderStandardBlock(par1Block, par2, par3, par4);
+        renderblocks.renderStandardBlock(block, x, y, z);
 
         if (!var9)
         {
         	renderblocks.overrideBlockTexture = -1;
         }
 
-        var8.setBrightness(par1Block.getMixedBrightnessForBlock(iblockaccess, par2, par3, par4));
+        var8.setBrightness(block.getMixedBrightnessForBlock(iblockaccess, x, y, z));
         float var13 = 1.0F;
 
-        if (Block.lightValue[par1Block.blockID] > 0)
+        if (Block.lightValue[block.blockID] > 0)
         {
             var13 = 1.0F;
         }
 
         var8.setColorOpaque_F(var13, var13, var13);
-        int var14 = par1Block.getBlockTextureFromSide(0);
+        int var14 = block.getBlockTextureFromSide(0);
 
         if (renderblocks.overrideBlockTexture >= 0)
         {
@@ -97,14 +103,14 @@ public class RenderMTLever implements ISimpleBlockRenderingHandler {
         float var22 = 0.0625F;
         float var23 = 0.0625F;
         float var24 = 0.625F;
-        var21[0] = renderblocks.blockAccess.getWorldVec3Pool().getVecFromPool((double)(-var22), 0.0D, (double)(-var23));
-        var21[1] = renderblocks.blockAccess.getWorldVec3Pool().getVecFromPool((double)var22, 0.0D, (double)(-var23));
-        var21[2] = renderblocks.blockAccess.getWorldVec3Pool().getVecFromPool((double)var22, 0.0D, (double)var23);
-        var21[3] = renderblocks.blockAccess.getWorldVec3Pool().getVecFromPool((double)(-var22), 0.0D, (double)var23);
-        var21[4] = renderblocks.blockAccess.getWorldVec3Pool().getVecFromPool((double)(-var22), (double)var24, (double)(-var23));
-        var21[5] = renderblocks.blockAccess.getWorldVec3Pool().getVecFromPool((double)var22, (double)var24, (double)(-var23));
-        var21[6] = renderblocks.blockAccess.getWorldVec3Pool().getVecFromPool((double)var22, (double)var24, (double)var23);
-        var21[7] = renderblocks.blockAccess.getWorldVec3Pool().getVecFromPool((double)(-var22), (double)var24, (double)var23);
+        var21[0] = iblockaccess.getWorldVec3Pool().getVecFromPool((double)(-var22), 0.0D, (double)(-var23));
+        var21[1] = iblockaccess.getWorldVec3Pool().getVecFromPool((double)var22, 0.0D, (double)(-var23));
+        var21[2] = iblockaccess.getWorldVec3Pool().getVecFromPool((double)var22, 0.0D, (double)var23);
+        var21[3] = iblockaccess.getWorldVec3Pool().getVecFromPool((double)(-var22), 0.0D, (double)var23);
+        var21[4] = iblockaccess.getWorldVec3Pool().getVecFromPool((double)(-var22), (double)var24, (double)(-var23));
+        var21[5] = iblockaccess.getWorldVec3Pool().getVecFromPool((double)var22, (double)var24, (double)(-var23));
+        var21[6] = iblockaccess.getWorldVec3Pool().getVecFromPool((double)var22, (double)var24, (double)var23);
+        var21[7] = iblockaccess.getWorldVec3Pool().getVecFromPool((double)(-var22), (double)var24, (double)var23);
 
         for (int var25 = 0; var25 < 8; ++var25)
         {
@@ -154,21 +160,21 @@ public class RenderMTLever implements ISimpleBlockRenderingHandler {
                     var21[var25].rotateAroundY(-((float)Math.PI / 2F));
                 }
 
-                var21[var25].xCoord += (double)par2 + 0.5D;
-                var21[var25].yCoord += (double)((float)par3 + 0.5F);
-                var21[var25].zCoord += (double)par4 + 0.5D;
+                var21[var25].xCoord += (double)x + 0.5D;
+                var21[var25].yCoord += (double)((float)y + 0.5F);
+                var21[var25].zCoord += (double)z + 0.5D;
             }
             else if (var6 != 0 && var6 != 7)
             {
-                var21[var25].xCoord += (double)par2 + 0.5D;
-                var21[var25].yCoord += (double)((float)par3 + 0.125F);
-                var21[var25].zCoord += (double)par4 + 0.5D;
+                var21[var25].xCoord += (double)x + 0.5D;
+                var21[var25].yCoord += (double)((float)y + 0.125F);
+                var21[var25].zCoord += (double)z + 0.5D;
             }
             else
             {
-                var21[var25].xCoord += (double)par2 + 0.5D;
-                var21[var25].yCoord += (double)((float)par3 + 0.875F);
-                var21[var25].zCoord += (double)par4 + 0.5D;
+                var21[var25].xCoord += (double)x + 0.5D;
+                var21[var25].yCoord += (double)((float)y + 0.875F);
+                var21[var25].zCoord += (double)z + 0.5D;
             }
         }
 
@@ -269,6 +275,6 @@ public class RenderMTLever implements ISimpleBlockRenderingHandler {
 	@Override
 	public int getRenderId() {
 		// TODO Auto-generated method stub
-		return 0;
+		return MTLCore.mtLeverBlockRenderID;
 	}
 }

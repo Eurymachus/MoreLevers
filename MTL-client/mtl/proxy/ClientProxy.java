@@ -80,6 +80,14 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	@Override
+	public int getBlockTextureFromSideAndMetadata(int side, int meta) {
+		if (side == 1000) {
+			return MTLItemLevers.getTexture(meta);
+		}
+		return getBlockTextureFromMetadata(meta);
+	}
+
+	@Override
 	public int getBlockTextureFromMetadata(int meta) {
 		int texture = -1;
 		EntityPlayer player = mc.thePlayer;

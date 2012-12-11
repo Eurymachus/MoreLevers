@@ -83,56 +83,50 @@ public class BlockMTLever extends BlockLever implements IContainer {
 	}
 	
 	@Override
-    public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityplayer, int l, float a, float b, float c)
     {
-        if (par1World.isRemote)
-        {
+       
+        TileEntity tileentity = world.getBlockTileEntity(x, y, z);
+        if (tileentity != null && tileentity instanceof TileEntityMTLever) {
+            int metadata = world.getBlockMetadata(x, y, z);
+            int side = metadata & 7;
+            int state = 8 - (metadata & 8);
+            world.setBlockMetadataWithNotify(x, y, z, side + state);
+            world.markBlocksDirty(x, y, z, x, y, z);
+            world.playSoundEffect((double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, "random.click", 0.3F, state > 0 ? 0.6F : 0.5F);
+            world.notifyBlocksOfNeighborChange(x, y, z, this.blockID);
+
+            if (side == 1)
+            {
+                world.notifyBlocksOfNeighborChange(x - 1, y, z, this.blockID);
+            }
+            else if (side == 2)
+            {
+                world.notifyBlocksOfNeighborChange(x + 1, y, z, this.blockID);
+            }
+            else if (side == 3)
+            {
+                world.notifyBlocksOfNeighborChange(x, y, z - 1, this.blockID);
+            }
+            else if (side == 4)
+            {
+                world.notifyBlocksOfNeighborChange(x, y, z + 1, this.blockID);
+            }
+            else if (side != 5 && side != 6)
+            {
+                if (side == 0 || side == 7)
+                {
+                    world.notifyBlocksOfNeighborChange(x, y + 1, z, this.blockID);
+                }
+            }
+            else
+            {
+                world.notifyBlocksOfNeighborChange(x, y - 1, z, this.blockID);
+            }
+
             return true;
         }
-        else
-        {
-            TileEntity tileentity = par1World.getBlockTileEntity(par2, par3, par4);
-            if (tileentity != null && tileentity instanceof TileEntityMTLever) {
-	            int var10 = par1World.getBlockMetadata(par2, par3, par4);
-	            int var11 = var10 & 7;
-	            int var12 = 8 - (var10 & 8);
-	            par1World.setBlockMetadataWithNotify(par2, par3, par4, var11 + var12);
-	            par1World.markBlocksDirty(par2, par3, par4, par2, par3, par4);
-	            par1World.playSoundEffect((double)par2 + 0.5D, (double)par3 + 0.5D, (double)par4 + 0.5D, "random.click", 0.3F, var12 > 0 ? 0.6F : 0.5F);
-	            par1World.notifyBlocksOfNeighborChange(par2, par3, par4, this.blockID);
-	
-	            if (var11 == 1)
-	            {
-	                par1World.notifyBlocksOfNeighborChange(par2 - 1, par3, par4, this.blockID);
-	            }
-	            else if (var11 == 2)
-	            {
-	                par1World.notifyBlocksOfNeighborChange(par2 + 1, par3, par4, this.blockID);
-	            }
-	            else if (var11 == 3)
-	            {
-	                par1World.notifyBlocksOfNeighborChange(par2, par3, par4 - 1, this.blockID);
-	            }
-	            else if (var11 == 4)
-	            {
-	                par1World.notifyBlocksOfNeighborChange(par2, par3, par4 + 1, this.blockID);
-	            }
-	            else if (var11 != 5 && var11 != 6)
-	            {
-	                if (var11 == 0 || var11 == 7)
-	                {
-	                    par1World.notifyBlocksOfNeighborChange(par2, par3 + 1, par4, this.blockID);
-	                }
-	            }
-	            else
-	            {
-	                par1World.notifyBlocksOfNeighborChange(par2, par3 - 1, par4, this.blockID);
-	            }
-	
-	            return true;
-            }
-            return false;
-        }
+        return false;
     }
 
 	/**
@@ -190,7 +184,7 @@ public class BlockMTLever extends BlockLever implements IContainer {
     @Override
     public void getSubBlocks(int blockId, CreativeTabs creativeTabs, List blockList){
     	for (MTLItemLevers lever : MTLItemLevers.values()) {
-    		if (lever.stackID > 1) {
+    		if (lever.stackID >= 0) {
     			blockList.add(new ItemStack(blockId, 1, lever.stackID));
     		}
     	}

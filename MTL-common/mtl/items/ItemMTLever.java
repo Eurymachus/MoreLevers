@@ -39,18 +39,10 @@ public class ItemMTLever extends ItemBlock {
 		return i;
 	}
 
-	/**
-	 * sets the array of strings to be used for name lookups from item damage to
-	 * metadata
-	 */
-	public ItemMTLever setBlockNames(String[] par1ArrayOfStr) {
-		this.leverNames = par1ArrayOfStr;
-		return this;
-	}
-
 	@Override
-	public int getIconFromDamage(int i) {
-		return i;
+	public int getIconFromDamage(int damage) {
+		//return this.blockRef.getBlockTextureFromSideAndMetadata(1000, damage);
+		return damage;
 	}
 
     /**
@@ -141,9 +133,9 @@ public class ItemMTLever extends ItemBlock {
 		}
 		return false;
 	}
-
-	@Override
-	public String getTextureFile() {
-		return MTLInit.MTL.getItemSheet();
-	}
+    
+    @Override
+    public String getTextureFile() {
+    	return MTLInit.MTL.getItemSheet();
+    }
 }
