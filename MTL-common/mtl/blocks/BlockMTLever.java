@@ -81,7 +81,7 @@ public class BlockMTLever extends BlockLever implements IContainer {
 			int side = metadata & 7;
 			int state = 8 - (metadata & 8);
 			world.setBlockMetadataWithNotify(x, y, z, side + state);
-			world.markBlocksDirty(x, y, z, x, y, z);
+			world.markBlockRangeForRenderUpdate(x, y, z, x, y, z);
 			world.playSoundEffect(
 					x + 0.5D,
 					y + 0.5D,

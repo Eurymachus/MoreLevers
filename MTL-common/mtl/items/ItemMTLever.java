@@ -83,7 +83,7 @@ public class ItemMTLever extends ItemBlock {
 			}
 		}
 
-		if (itemstack.stackSize == 0 || !entityplayer.func_82247_a(
+		if (itemstack.stackSize == 0 || !entityplayer.canPlayerEdit(
 				i,
 				j,
 				k,
