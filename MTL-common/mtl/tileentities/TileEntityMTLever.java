@@ -1,7 +1,7 @@
 package mtl.tileentities;
 
 import mtl.network.packets.PacketUpdateMTLever;
-import net.minecraft.src.Packet;
+import net.minecraft.network.packet.Packet;
 import eurysmods.tileentities.TileEntityMT;
 
 public class TileEntityMTLever extends TileEntityMT {

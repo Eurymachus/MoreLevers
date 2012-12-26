@@ -6,13 +6,13 @@ import java.io.DataInputStream;
 import mtl.core.MTLInit;
 import mtl.network.ServerPacketHandler;
 import mtl.network.packets.PacketUpdateMTLever;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.INetworkManager;
-import net.minecraft.src.NetHandler;
-import net.minecraft.src.Packet1Login;
-import net.minecraft.src.Packet250CustomPayload;
-import net.minecraft.src.TileEntity;
-import net.minecraft.src.World;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.network.INetworkManager;
+import net.minecraft.network.packet.NetHandler;
+import net.minecraft.network.packet.Packet1Login;
+import net.minecraft.network.packet.Packet250CustomPayload;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 import cpw.mods.fml.common.network.Player;
 import eurysmods.api.ICommonProxy;
 import eurysmods.api.IPacketHandling;
@@ -29,6 +29,7 @@ public class CommonProxy implements ICommonProxy {
 
 	}
 
+	@Override
 	public String getMinecraftDir() {
 		return "./";
 	}
@@ -133,5 +134,11 @@ public class CommonProxy implements ICommonProxy {
 	public int getAtPlayer(EntityPlayer player) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public void preInit() {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -3,9 +3,9 @@ package mtl.core;
 import java.io.File;
 
 import mtl.tileentities.TileEntityMTLever;
-import net.minecraft.src.Block;
-import net.minecraft.src.IBlockAccess;
-import net.minecraft.src.TileEntity;
+import net.minecraft.block.Block;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.Configuration;
 import eurysmods.api.ICommonProxy;
 import eurysmods.api.ICore;
