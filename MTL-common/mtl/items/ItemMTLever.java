@@ -101,7 +101,7 @@ public class ItemMTLever extends ItemBlock {
 				l,
 				entityplayer)) {
 			int meta = this.getMetadata(itemstack.getItemDamage());
-			int data = lever.func_85104_a(world, i, j, k, l, a, b, c, meta);
+			int data = lever.onBlockPlaced(world, i, j, k, l, a, b, c, meta);
 			if (this.placeBlockAt(
 					itemstack,
 					entityplayer,
