@@ -29,18 +29,16 @@ public class MultiTexturedLevers {
 			serverSide = "eurymachus.mtl.proxy.CommonProxy")
 	public static ICommonProxy proxy;
 
-	@Init
-	public void MultiTexturedLeversInit(FMLInitializationEvent event) {
-
-	}
-
 	@PreInit
 	public void MultiTexturedLeversPreInit(FMLPreInitializationEvent event) {
+	}
 
+	@Init
+	public void MultiTexturedLeversInit(FMLInitializationEvent event) {
+		MTLInit.initialize(proxy);
 	}
 
 	@PostInit
 	public void MultiTexturedLeversPostInit(FMLPostInitializationEvent event) {
-		MTLInit.initialize(proxy);
 	}
 }
