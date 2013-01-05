@@ -29,7 +29,6 @@ public class MTLCore {
 	}
 
 	public static void addItems() {
-		MTLBlocks.mtLever.id = configurationProperties();
 		MTLBlocks.mtLever.me = new BlockMTLever(
 				MTLBlocks.mtLever.id,
 					TileEntityMTLever.class,
@@ -47,10 +46,7 @@ public class MTLCore {
 	public static void registerBlocks() {
 		for (MTLBlocks block : MTLBlocks.values()) {
 			if (block != null && block.me != null) {
-				GameRegistry.registerBlock(block.me, ItemMTLever.class);
-				if (block.name != null) {
-					ModLoader.addName(block.me, block.name);
-				}
+				GameRegistry.registerBlock(block.me, ItemMTLever.class, block.name);
 			}
 		}
 	}
@@ -163,7 +159,7 @@ public class MTLCore {
 		MTLBlocks.mtLever.id = Integer.parseInt(configuration.get(
 				Configuration.CATEGORY_BLOCK,
 				"mtLever",
-				69).value);
+				Block.lever.blockID).value);
 		mtLeverBlockRenderID = Integer.parseInt(configuration.get(
 				Configuration.CATEGORY_GENERAL,
 				"mtLeverRenderID",

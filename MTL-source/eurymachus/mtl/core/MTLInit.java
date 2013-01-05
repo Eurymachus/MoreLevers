@@ -33,6 +33,7 @@ public class MTLInit {
 	}
 
 	public static void load() {
+		MTLCore.configurationProperties();
 		EurysCore.console(MTL.getModName(), "Removing Recipies...");
 		RecipeRemover.registerItemRecipeToRemove(Block.lever);
 		RecipeRemover.removeCrafting();

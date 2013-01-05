@@ -35,10 +35,10 @@ public class MultiTexturedLevers {
 
 	@Init
 	public void MultiTexturedLeversInit(FMLInitializationEvent event) {
-		MTLInit.initialize(proxy);
 	}
 
 	@PostInit
 	public void MultiTexturedLeversPostInit(FMLPostInitializationEvent event) {
+		MTLInit.initialize(proxy);
 	}
 }
