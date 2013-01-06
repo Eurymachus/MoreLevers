@@ -26,6 +26,7 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void registerRenderInformation() {
 		MinecraftForgeClient.preloadTexture(MTLInit.MTL.getBlockSheet());
+		MTLCore.mtLeverBlockRenderID = RenderingRegistry.getNextAvailableRenderId();
 		RenderingRegistry.registerBlockHandler(
 				MTLCore.mtLeverBlockRenderID,
 				new RenderMTLever());

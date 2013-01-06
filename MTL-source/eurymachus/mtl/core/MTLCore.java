@@ -160,10 +160,6 @@ public class MTLCore {
 				Configuration.CATEGORY_BLOCK,
 				"mtLever",
 				Block.lever.blockID).value);
-		mtLeverBlockRenderID = Integer.parseInt(configuration.get(
-				Configuration.CATEGORY_GENERAL,
-				"mtLeverRenderID",
-				RenderingRegistry.getNextAvailableRenderId()).value);
 		MTLBlocks.mtLever.name = "Multi-Textured Lever";
 		MTLItemLevers.iron.name = "Iron-Clad Lever";
 		MTLItemLevers.iron.stackID = 0;
