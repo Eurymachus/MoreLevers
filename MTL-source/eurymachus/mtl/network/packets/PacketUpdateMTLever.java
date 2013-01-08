@@ -1,8 +1,8 @@
 package eurymachus.mtl.network.packets;
 
+import slimevoid.lib.network.PacketTileEntityMT;
 import eurymachus.mtl.core.MTLInit;
 import eurymachus.mtl.tileentities.TileEntityMTLever;
-import eurysmods.network.packets.core.PacketTileEntityMT;
 
 public class PacketUpdateMTLever extends PacketTileEntityMT {
 	public PacketUpdateMTLever() {

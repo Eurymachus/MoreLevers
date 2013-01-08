@@ -3,6 +3,8 @@ package eurymachus.mtl.blocks;
 import java.util.List;
 import java.util.Random;
 
+import slimevoid.lib.IContainer;
+
 import net.minecraft.block.BlockLever;
 import net.minecraft.block.StepSound;
 import net.minecraft.creativetab.CreativeTabs;
@@ -20,7 +22,6 @@ import eurymachus.mtl.core.MTLCore;
 import eurymachus.mtl.core.MTLInit;
 import eurymachus.mtl.core.MTLItemLevers;
 import eurymachus.mtl.tileentities.TileEntityMTLever;
-import eurysmods.api.IContainer;
 
 public class BlockMTLever extends BlockLever implements IContainer {
 	Class mtLeverEntityClass;

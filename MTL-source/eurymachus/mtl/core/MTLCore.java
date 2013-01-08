@@ -2,6 +2,8 @@ package eurymachus.mtl.core;
 
 import java.io.File;
 
+import slimevoid.lib.ICommonProxy;
+
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -13,7 +15,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import eurymachus.mtl.blocks.BlockMTLever;
 import eurymachus.mtl.items.ItemMTLever;
 import eurymachus.mtl.tileentities.TileEntityMTLever;
-import eurysmods.api.ICommonProxy;
 
 public class MTLCore {
 	public static File configFile;

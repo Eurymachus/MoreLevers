@@ -2,17 +2,18 @@ package eurymachus.mtl.core;
 
 import java.io.File;
 
+import slimevoid.lib.ICommonProxy;
+import slimevoid.lib.ICore;
+import slimevoid.lib.core.BlockRemover;
+import slimevoid.lib.core.Core;
+import slimevoid.lib.core.SlimevoidCore;
+import slimevoid.lib.core.RecipeRemover;
+
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.Configuration;
 import eurymachus.mtl.tileentities.TileEntityMTLever;
-import eurysmods.api.ICommonProxy;
-import eurysmods.api.ICore;
-import eurysmods.core.BlockRemover;
-import eurysmods.core.Core;
-import eurysmods.core.EurysCore;
-import eurysmods.core.RecipeRemover;
 
 public class MTLInit {
 	public static ICore MTL;
@@ -34,19 +35,19 @@ public class MTLInit {
 
 	public static void load() {
 		MTLCore.configurationProperties();
-		EurysCore.console(MTL.getModName(), "Removing Recipies...");
+		SlimevoidCore.console(MTL.getModName(), "Removing Recipies...");
 		RecipeRemover.registerItemRecipeToRemove(Block.lever);
 		RecipeRemover.removeCrafting();
-		EurysCore.console(MTL.getModName(), "Removing Blocks...");
+		SlimevoidCore.console(MTL.getModName(), "Removing Blocks...");
 		BlockRemover.removeVanillaBlock(Block.lever);
-		EurysCore.console(MTL.getModName(), "Registering items...");
+		SlimevoidCore.console(MTL.getModName(), "Registering items...");
 		MTLCore.addItems();
-		EurysCore.console(MTL.getModName(), "Registering blocks...");
+		SlimevoidCore.console(MTL.getModName(), "Registering blocks...");
 		MTLCore.registerBlocks();
 		MTL.getProxy().registerRenderInformation();
-		EurysCore.console(MTL.getModName(), "Naming items...");
+		SlimevoidCore.console(MTL.getModName(), "Naming items...");
 		MTLCore.addItemNames();
-		EurysCore.console(MTL.getModName(), "Registering recipes...");
+		SlimevoidCore.console(MTL.getModName(), "Registering recipes...");
 		MTLCore.addRecipes();
 	}
 

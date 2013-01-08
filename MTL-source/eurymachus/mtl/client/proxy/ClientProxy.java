@@ -1,5 +1,6 @@
 package eurymachus.mtl.client.proxy;
 
+import slimevoid.lib.IPacketHandling;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.src.ModLoader;
@@ -14,7 +15,6 @@ import eurymachus.mtl.core.MTLCore;
 import eurymachus.mtl.core.MTLInit;
 import eurymachus.mtl.core.MTLItemLevers;
 import eurymachus.mtl.proxy.CommonProxy;
-import eurysmods.api.IPacketHandling;
 
 public class ClientProxy extends CommonProxy {
 
