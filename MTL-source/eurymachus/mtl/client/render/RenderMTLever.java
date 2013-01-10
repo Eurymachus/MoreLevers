@@ -33,7 +33,7 @@ public class RenderMTLever implements ISimpleBlockRenderingHandler {
 		float var12 = 0.1875F;
 
 		if (var6 == 5) {
-			renderblocks.setRenderMinMax(
+			renderblocks.setRenderBounds(
 					0.5F - var11,
 					0.0D,
 					0.5F - var10,
@@ -41,7 +41,7 @@ public class RenderMTLever implements ISimpleBlockRenderingHandler {
 					var12,
 					0.5F + var10);
 		} else if (var6 == 6) {
-			renderblocks.setRenderMinMax(
+			renderblocks.setRenderBounds(
 					0.5F - var10,
 					0.0D,
 					0.5F - var11,
@@ -49,7 +49,7 @@ public class RenderMTLever implements ISimpleBlockRenderingHandler {
 					var12,
 					0.5F + var11);
 		} else if (var6 == 4) {
-			renderblocks.setRenderMinMax(
+			renderblocks.setRenderBounds(
 					0.5F - var11,
 					0.5F - var10,
 					1.0F - var12,
@@ -57,7 +57,7 @@ public class RenderMTLever implements ISimpleBlockRenderingHandler {
 					0.5F + var10,
 					1.0D);
 		} else if (var6 == 3) {
-			renderblocks.setRenderMinMax(
+			renderblocks.setRenderBounds(
 					0.5F - var11,
 					0.5F - var10,
 					0.0D,
@@ -65,7 +65,7 @@ public class RenderMTLever implements ISimpleBlockRenderingHandler {
 					0.5F + var10,
 					var12);
 		} else if (var6 == 2) {
-			renderblocks.setRenderMinMax(
+			renderblocks.setRenderBounds(
 					1.0F - var12,
 					0.5F - var10,
 					0.5F - var11,
@@ -73,7 +73,7 @@ public class RenderMTLever implements ISimpleBlockRenderingHandler {
 					0.5F + var10,
 					0.5F + var11);
 		} else if (var6 == 1) {
-			renderblocks.setRenderMinMax(
+			renderblocks.setRenderBounds(
 					0.0D,
 					0.5F - var10,
 					0.5F - var11,
@@ -81,7 +81,7 @@ public class RenderMTLever implements ISimpleBlockRenderingHandler {
 					0.5F + var10,
 					0.5F + var11);
 		} else if (var6 == 0) {
-			renderblocks.setRenderMinMax(
+			renderblocks.setRenderBounds(
 					0.5F - var10,
 					1.0F - var12,
 					0.5F - var11,
@@ -89,7 +89,7 @@ public class RenderMTLever implements ISimpleBlockRenderingHandler {
 					1.0D,
 					0.5F + var11);
 		} else if (var6 == 7) {
-			renderblocks.setRenderMinMax(
+			renderblocks.setRenderBounds(
 					0.5F - var11,
 					1.0F - var12,
 					0.5F - var10,
