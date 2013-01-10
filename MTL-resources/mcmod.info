@@ -3,8 +3,8 @@
   "modid": "MultiTexturedLevers",
   "name": "Eury's Multi-Textured Levers",
   "description": "Basic mod that adds a few more Levers to the game.",
-  "version": "2.0.0.0",
-  "mcversion": "1.4.6",
+  "version": "2.0.0.1",
+  "mcversion": "1.4.7",
   "url": "http://www.github.com/SlimeVoid/MultiTexturedLevers",
   "updateUrl": "",
   "authors": [

@@ -16,7 +16,7 @@ import eurymachus.mtl.network.MTLConnection;
 		modid = "MultiTexturedLevers",
 		name = "Multi-Textured Levers",
 		dependencies = "after:SlimevoidLib",
-		version = "2.0.0.0")
+		version = "2.0.0.1")
 @NetworkMod(
 		clientSideRequired = true,
 		serverSideRequired = false,
