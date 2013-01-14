@@ -1,15 +1,15 @@
 package eurymachus.mtl.items;
 
-import eurymachus.mtl.core.MTLBlocks;
-import eurymachus.mtl.core.MTLInit;
-import eurymachus.mtl.core.MTLItemLevers;
-import eurymachus.mtl.tileentities.TileEntityMTLever;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import eurymachus.mtl.core.MTLBlocks;
+import eurymachus.mtl.core.MTLInit;
+import eurymachus.mtl.core.MTLItemLevers;
+import eurymachus.mtl.tileentities.TileEntityMTLever;
 
 public class ItemMTLever extends ItemBlock {
 	private String[] leverNames = MTLItemLevers.getLeverNames();

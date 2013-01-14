@@ -2,15 +2,13 @@ package eurymachus.mtl.core;
 
 import java.io.File;
 
-import slimevoid.lib.ICommonProxy;
-
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.Configuration;
-import cpw.mods.fml.client.registry.RenderingRegistry;
+import slimevoid.lib.ICommonProxy;
 import cpw.mods.fml.common.registry.GameRegistry;
 import eurymachus.mtl.blocks.BlockMTLever;
 import eurymachus.mtl.items.ItemMTLever;
