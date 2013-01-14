@@ -1,0 +1,111 @@
+[center][url="http://www.minecraftforum.net/topic/1123291-123forgemlmp-eurys-multi-textured-mods-sspsmpbukkit/"][size=7][b]Eury's Multi-Textured Mods[/b][/size]
+
+[img]http://i1160.photobucket.com/albums/q492/Eurymachus/Eurys%20Mods/Mods_Thumb.png[/img][/url][/center]
+
+Hello Again! I trust you've already had the pleasure of using the other mods in this series [url="http://www.minecraftforum.net/topic/1030033-110forge-eurys-mods-multi-textured-signs-v21-cross-over-recipes-furnace-recipes-and-packet230modloadersspsmpbukkit/"]Multi-Textured Signs[/url]? And [url="http://www.minecraftforum.net/topic/1107747-123forge-eurys-mods-multi-textured-buttons-v12-sspsmpbukkit/"]Multi-Textured Buttons[/url]? Yes? Great!!
+
+Since I began modding I realised that my fellow minecraftians were looking for the same thing I was... Choice! We want the same vanilla items, but the choice of aestetics without compromising out texture packs.......Hence.....
+
+[b][size=5]Eury's Multi-Textured Levers v1.3 (Iron, Gold and Diamond)[/size][/b]
+[b][size=3]Works just like your average lever except it looks how you want it to look[/size].[/b]
+
+[size=5][b]Please note that Multi-Textured Levers is now packaged with all other mods on the main download page above.[/b][/size]
+
+[b][size=5]Installation: Client[/size][/b]
+[spoiler]
+[b][size=3]Prerequisites[/size][/b]
+First you're going to need to download and install
+[b][size=2][url="http://minecraftforge.net/forum/"]Minecraft Forge[/url][/size][/b]
+
+Then the mod files to be placed in [b]%appdata%\.minecraft\mods\[/b]:
+[b][size=2]Multi-Textured Levers v1.3 - Client|SSP/SMP[/size][/b] - Download from [b]AdF.ly[/b]
+[/spoiler]
+
+[b][size=5]Installation: Server[/size][/b]
+[spoiler]
+[b][size=3]Prerequisites[/size][/b]
+For this you just need [b][size=2][url="http://minecraftforge.net/forum/"]Minecraft Forge[/url][/size][/b].
+
+Then the mod files to be extracted into your minecraft_server.jar:
+[b][size=2]Multi-Textured Levers v1.3 - Server|SMP[/size][/b] - Download from [b]AdF.ly[/b]
+[/spoiler]
+
+[b][size=5]Installation: Bukkit[/size][/b]
+[spoiler]
+[b][size=3]Prerequisites[/size][/b]
+Visit [url="http://www.mcportcentral.co.za/index.php?board=3.0"][b]MC Port Central[/b][/url] for the latest 1.2.5 MCPC Ports
+
+Then the mod files to be extracted into your craftbukkit.jar:
+[b][size=2]Multi-Textured Levers v1.3 - Bukkit|SMP[/size][/b] - Download from [b]AdF.ly[/b]
+[/spoiler]
+
+[b][size=3]Information:[/size][/b]
+[spoiler]
+Config File Auto Generated IDs as follows:
+[size=2][b]Lever BlockID = 195[/b][/size]
+[size=2][b]Lever TileNetID = 215[/b][/size]
+
+[b](All IDs are configurable in the config/MultiTexturedLevers.cfg)[/b]
+[/spoiler]
+
+[b][size=3]Changelog:[/size][/b]
+[spoiler]
+Version 1.2
+[spoiler]
+[size=2]- MC 1.2.3 Update[/size] TBA
+[/spoiler]
+Version 1.0
+[spoiler]
+[size=2]- Mod uploaded[/size]
+[/spoiler]
+[/spoiler]
+
+[b][size=3]Recipes:[/size][/b]
+[spoiler]
+[img]http://i1160.photobucket.com/albums/q492/Eurymachus/Eurys%20Mods/Lever_Iron.png[/img]
+[img]http://i1160.photobucket.com/albums/q492/Eurymachus/Eurys%20Mods/Lever_Gold.png[/img]
+[img]http://i1160.photobucket.com/albums/q492/Eurymachus/Eurys%20Mods/Lever_Diamond.png[/img]
+[/spoiler]
+
+[b][size=3]Screenshot:[/size][/b]
+[spoiler]
+[img]http://i1160.photobucket.com/albums/q492/Eurymachus/Eurys%20Mods/Levers1.png[/img]
+[img]http://i1160.photobucket.com/albums/q492/Eurymachus/Eurys%20Mods/Levers2.png[/img]
+[img]http://i1160.photobucket.com/albums/q492/Eurymachus/Eurys%20Mods/Levers3.png[/img]
+[/spoiler]
+
+[b][size=3]Older Versions[/size][/b]
+[spoiler]Minecraft 1.2.3
+[spoiler]
+MTL v1.2
+[spoiler]
+[b][size=5]Installation: [url="http://adf.ly/6jIlc"]Client[/url][/size][/b]
+[b][size=5]Installation: [url="http://adf.ly/6jIn8"]Server[/url][/size][/b]
+[b][size=5]Installation: [url="http://adf.ly/6jIp7"]Bukkit[/url][/size][/b]
+[/spoiler]
+[/spoiler]
+Minecraft v1.1
+[spoiler]
+MTL v1.0
+[spoiler]
+[b][size=5]Installation: [url="http://adf.ly/6eHDZ"]Client[/url][/size][/b]
+[b][size=5]Installation: [url="http://adf.ly/6eHLA"]Server[/url][/size][/b]
+[b][size=5]Installation: [url="http://adf.ly/6eHMk"]Bukkit[/url][/size][/b]
+[/spoiler]
+[/spoiler]
+[/spoiler]
+
+[b][size=3]Planned features:[/size][/b]
+[spoiler]
+[size=3]- Additional lever textures[/size]
+[/spoiler]
+
+I really hope you find them as useful as my friend and I do, it's just nice to have the choice sometimes.
+
+[size=2]Good luck and Notch Speed!
+[b]Eurymachus[/b][/size]
+
+[size=2]Copyright[/size]
+[spoiler]
+[size=1]This mod (plugin, a patch to Minecraft source, henceforth "Mod" or "The Mod"), by the terms of [url="http://www.minecraft.net/copyright.jsp"]http://www.minecraft.net/copyright.jsp[/url] is sole property of the Mod author Eurymachus, henceforth "Owner" or "The Owner". By default it may only be distributed on minecraftforums.net, mcmodcenter.net. It may only be mirrored or re-posted with advance written permission of the Owner. Electronic Mail is fine if you wait for a response. URL shorteners or other attempts to make money off The Owner's Mod are strictly forbidden without advance written permission. Copyright @ February, 16, 2012[/size]
+[/spoiler]
