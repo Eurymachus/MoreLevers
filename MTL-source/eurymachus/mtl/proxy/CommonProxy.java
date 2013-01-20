@@ -37,13 +37,11 @@ public class CommonProxy implements ICommonProxy {
 
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -82,64 +80,49 @@ public class CommonProxy implements ICommonProxy {
 
 	@Override
 	public World getWorld() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public World getWorld(NetHandler handler) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public EntityPlayer getPlayer() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public void login(NetHandler handler, INetworkManager manager, Packet1Login login) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void registerTickHandler() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void displayTileEntityGui(EntityPlayer entityplayer, TileEntity tileentity) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public int getBlockTextureFromMetadata(int meta) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getMouseOver() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getBelowPlayer(EntityPlayer player) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public int getAtPlayer(EntityPlayer player) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public void preInit() {
-		// TODO Auto-generated method stub
-		
 	}
 }

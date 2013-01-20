@@ -297,8 +297,6 @@ public class RenderMTLever implements ISimpleBlockRenderingHandler {
 
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
@@ -311,13 +309,11 @@ public class RenderMTLever implements ISimpleBlockRenderingHandler {
 
 	@Override
 	public boolean shouldRender3DInInventory() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public int getRenderId() {
-		// TODO Auto-generated method stub
 		return MTLCore.mtLeverBlockRenderID;
 	}
 }
