@@ -5,13 +5,15 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import eurymachus.mtl.core.MTLBlocks;
-import eurymachus.mtl.core.MTLInit;
 import eurymachus.mtl.core.MTLItemLevers;
 import eurymachus.mtl.tileentities.TileEntityMTLever;
 
 public class ItemMTLever extends ItemBlock {
+	
+	private Icon[] iconList;
 	private String[] leverNames = MTLItemLevers.getLeverNames();
 
 	private final Block blockRef;
@@ -25,9 +27,9 @@ public class ItemMTLever extends ItemBlock {
 	}
 
 	@Override
-	public String getItemNameIS(ItemStack itemstack) {
+	public String getUnlocalizedName(ItemStack itemstack) {
 		return (new StringBuilder())
-				.append(super.getItemName())
+				.append(super.getUnlocalizedName())
 					.append(".")
 					.append(leverNames[itemstack.getItemDamage()])
 					.toString();
@@ -38,10 +40,8 @@ public class ItemMTLever extends ItemBlock {
 	}
 
 	@Override
-	public int getIconFromDamage(int damage) {
-		// return this.blockRef.getBlockTextureFromSideAndMetadata(1000,
-		// damage);
-		return damage;
+	public Icon getIconFromDamage(int damage) {
+		return this.blockRef.getIcon(0, damage);
 	}
 
 	/**
@@ -99,7 +99,8 @@ public class ItemMTLever extends ItemBlock {
 				k,
 				false,
 				l,
-				entityplayer)) {
+				entityplayer,
+				itemstack)) {
 			int meta = this.getMetadata(itemstack.getItemDamage());
 			int data = lever.onBlockPlaced(world, i, j, k, l, a, b, c, meta); /*onBlockPlaced*/
 			if (this.placeBlockAt(
@@ -115,7 +116,7 @@ public class ItemMTLever extends ItemBlock {
 					c,
 					data)) {
 				if (world.getBlockId(i, j, k) == lever.blockID) {
-					lever.onBlockPlacedBy(world, i, j, k, entityplayer);
+					lever.onBlockPlacedBy(world, i, j, k, entityplayer, itemstack);
 					TileEntity tileentity = world.getBlockTileEntity(i, j, k);
 
 					if (tileentity != null && tileentity instanceof TileEntityMTLever) {
@@ -139,10 +140,5 @@ public class ItemMTLever extends ItemBlock {
 			}
 		}
 		return false;
-	}
-
-	@Override
-	public String getTextureFile() {
-		return MTLInit.MTL.getItemSheet();
 	}
 }

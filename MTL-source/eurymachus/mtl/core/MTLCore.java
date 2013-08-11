@@ -8,7 +8,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.Configuration;
-import slimevoid.lib.ICommonProxy;
 import cpw.mods.fml.common.registry.GameRegistry;
 import eurymachus.mtl.blocks.BlockMTLever;
 import eurymachus.mtl.items.ItemMTLever;
@@ -20,11 +19,11 @@ public class MTLCore {
 	public static boolean initialized = false;
 	public static int mtLeverBlockRenderID;
 
-	public static void initialize(ICommonProxy proxy) {
+	public static void initialize() {
 		if (initialized)
 			return;
 		initialized = true;
-		MTLInit.initialize(proxy);
+		MTLInit.initialize();
 	}
 
 	public static void addItems() {
@@ -155,46 +154,46 @@ public class MTLCore {
 
 	public static int configurationProperties() {
 		configuration.load();
-		MTLBlocks.mtLever.id = Integer.parseInt(configuration.get(
+		MTLBlocks.mtLever.id = configuration.get(
 				Configuration.CATEGORY_BLOCK,
 				"mtLever",
-				Block.lever.blockID).value);
+				Block.lever.blockID).getInt();
 		MTLBlocks.mtLever.name = "Multi-Textured Lever";
 		MTLItemLevers.iron.name = "Iron-Clad Lever";
 		MTLItemLevers.iron.stackID = 0;
-		MTLItemLevers.iron.setTextureIndex(22);
+		MTLItemLevers.iron.setTextureIndex("iron_block");
 		MTLItemLevers.iron.setBlockHardness(2.5F);
 		MTLItemLevers.gold.name = "Gold-Plated Lever";
 		MTLItemLevers.gold.stackID = 1;
-		MTLItemLevers.gold.setTextureIndex(23);
+		MTLItemLevers.gold.setTextureIndex("gold_block");
 		MTLItemLevers.gold.setBlockHardness(1.5F);
 		MTLItemLevers.diamond.name = "Diamond-Encrusted Lever";
 		MTLItemLevers.diamond.stackID = 2;
-		MTLItemLevers.diamond.setTextureIndex(24);
+		MTLItemLevers.diamond.setTextureIndex("diamond_block");
 		MTLItemLevers.diamond.setBlockHardness(2.5F);
 		MTLItemLevers.oakPlank.name = "Oak Wood Lever";
 		MTLItemLevers.oakPlank.stackID = 3;
-		MTLItemLevers.oakPlank.setTextureIndex(4);
+		MTLItemLevers.oakPlank.setTextureIndex("planks_oak");
 		MTLItemLevers.oakPlank.setBlockHardness(0.5F);
 		MTLItemLevers.sprucePlank.name = "Spruce Wood Lever";
 		MTLItemLevers.sprucePlank.stackID = 4;
-		MTLItemLevers.sprucePlank.setTextureIndex(198);
+		MTLItemLevers.sprucePlank.setTextureIndex("planks_spruce");
 		MTLItemLevers.sprucePlank.setBlockHardness(0.5F);
 		MTLItemLevers.birchPlank.name = "Birch Wood Lever";
 		MTLItemLevers.birchPlank.stackID = 5;
-		MTLItemLevers.birchPlank.setTextureIndex(214);
+		MTLItemLevers.birchPlank.setTextureIndex("planks_birch");
 		MTLItemLevers.birchPlank.setBlockHardness(0.5F);
 		MTLItemLevers.junglePlank.name = "Jungle Wood Lever";
 		MTLItemLevers.junglePlank.stackID = 6;
-		MTLItemLevers.junglePlank.setTextureIndex(199);
+		MTLItemLevers.junglePlank.setTextureIndex("planks_jungle");
 		MTLItemLevers.junglePlank.setBlockHardness(0.5F);
 		MTLItemLevers.polishedStone.name = "Polished Stone Lever";
 		MTLItemLevers.polishedStone.stackID = 7;
-		MTLItemLevers.polishedStone.setTextureIndex(6);
+		MTLItemLevers.polishedStone.setTextureIndex("stone_slab_top");
 		MTLItemLevers.polishedStone.setBlockHardness(1.0F);
 		MTLItemLevers.cobbleStone.name = "Cobblestone Lever";
 		MTLItemLevers.cobbleStone.stackID = 8;
-		MTLItemLevers.cobbleStone.setTextureIndex(16);
+		MTLItemLevers.cobbleStone.setTextureIndex("cobblestone");
 		MTLItemLevers.cobbleStone.setBlockHardness(1.0F);
 		configuration.save();
 		return MTLBlocks.mtLever.id;

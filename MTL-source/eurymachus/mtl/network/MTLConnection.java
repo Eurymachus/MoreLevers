@@ -6,15 +6,15 @@ import net.minecraft.network.packet.NetHandler;
 import net.minecraft.network.packet.Packet1Login;
 import net.minecraft.network.packet.Packet250CustomPayload;
 import net.minecraft.server.MinecraftServer;
-import slimevoid.lib.INetworkConnection;
+import slimevoidlib.INetworkConnection;
 import cpw.mods.fml.common.network.Player;
-import eurymachus.mtl.core.MTLInit;
+import eurymachus.mtl.core.MultiTexturedLevers;
 
 public class MTLConnection implements INetworkConnection {
 
 	@Override
 	public void onPacketData(INetworkManager manager, Packet250CustomPayload packet, Player player) {
-		MTLInit.MTL.getProxy().onPacketData(manager, packet, player);
+		MultiTexturedLevers.proxy.onPacketData(manager, packet, player);
 	}
 
 	@Override

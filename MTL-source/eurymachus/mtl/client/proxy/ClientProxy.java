@@ -5,7 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.src.ModLoader;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.client.MinecraftForgeClient;
-import slimevoid.lib.IPacketHandling;
+import slimevoidlib.IPacketHandling;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -20,12 +20,12 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public String getMinecraftDir() {
-		return Minecraft.getMinecraftDir().toString();
+		return Minecraft.getMinecraft().mcDataDir.getPath();
 	}
 
 	@Override
 	public void registerRenderInformation() {
-		MinecraftForgeClient.preloadTexture(MTLInit.MTL.getBlockSheet());
+		//MinecraftForgeClient.preloadTexture(MTLInit.MTL.getBlockSheet());
 		MTLCore.mtLeverBlockRenderID = RenderingRegistry.getNextAvailableRenderId();
 		RenderingRegistry.registerBlockHandler(
 				MTLCore.mtLeverBlockRenderID,
@@ -80,32 +80,12 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public int getBlockTextureFromSideAndMetadata(int side, int meta) {
-		if (side == 1000) {
-			return MTLItemLevers.getTexture(meta);
-		}
-		return getBlockTextureFromMetadata(meta);
+		return 0;
 	}
 
 	@Override
 	public int getBlockTextureFromMetadata(int meta) {
-		int texture = -1;
-		EntityPlayer player = mc.thePlayer;
-		if (player.onGround) {
-			texture = getMouseOver();
-		}
-		if (texture == -1 && player.isAirBorne) {
-			texture = getMouseOver();
-		}
-		if (texture == -1 && player.isAirBorne) {
-			texture = getBelowPlayer(player);
-		}
-		if (texture == -1 && player.isAirBorne) {
-			texture = getAtPlayer(player);
-		}
-		texture = MTLItemLevers.getTexture(texture);
-		if (texture == -1)
-			texture = 22;
-		return texture;
+		return 0;
 	}
 
 	@Override

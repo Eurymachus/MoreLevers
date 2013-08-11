@@ -1,44 +1,43 @@
 package eurymachus.mtl.core;
 
-import slimevoid.lib.ICommonProxy;
+import slimevoidlib.ICommonProxy;
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.Init;
-import cpw.mods.fml.common.Mod.PostInit;
-import cpw.mods.fml.common.Mod.PreInit;
+import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import eurymachus.mtl.core.lib.CoreLib;
 import eurymachus.mtl.network.MTLConnection;
 
 @Mod(
-		modid = "MultiTexturedLevers",
-		name = "Multi-Textured Levers",
-		dependencies = "after:SlimevoidLib",
-		version = "2.0.0.1")
+		modid = CoreLib.MOD_ID,
+		name = CoreLib.MOD_NAME,
+		dependencies = CoreLib.MOD_DEPENDENCIES,
+		version = CoreLib.MOD_VERSION)
 @NetworkMod(
 		clientSideRequired = true,
 		serverSideRequired = false,
-		channels = { "MTL" },
+		channels = { CoreLib.MOD_CHANNEL },
 		packetHandler = MTLConnection.class,
 		connectionHandler = MTLConnection.class)
 public class MultiTexturedLevers {
 	@SidedProxy(
-			clientSide = "eurymachus.mtl.client.proxy.ClientProxy",
-			serverSide = "eurymachus.mtl.proxy.CommonProxy")
+			clientSide = CoreLib.CLIENT_PROXY,
+			serverSide = CoreLib.COMMON_PROXY)
 	public static ICommonProxy proxy;
 
-	@PreInit
+	@EventHandler
 	public void MultiTexturedLeversPreInit(FMLPreInitializationEvent event) {
 	}
 
-	@Init
+	@EventHandler
 	public void MultiTexturedLeversInit(FMLInitializationEvent event) {
 	}
 
-	@PostInit
+	@EventHandler
 	public void MultiTexturedLeversPostInit(FMLPostInitializationEvent event) {
-		MTLInit.initialize(proxy);
+		MTLInit.initialize();
 	}
 }

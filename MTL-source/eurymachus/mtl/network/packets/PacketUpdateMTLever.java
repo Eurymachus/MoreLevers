@@ -1,15 +1,15 @@
 package eurymachus.mtl.network.packets;
 
-import slimevoid.lib.network.PacketTileEntityMT;
-import eurymachus.mtl.core.MTLInit;
+import slimevoidlib.network.PacketTileEntityMT;
+import eurymachus.mtl.core.lib.CoreLib;
 import eurymachus.mtl.tileentities.TileEntityMTLever;
 
 public class PacketUpdateMTLever extends PacketTileEntityMT {
 	public PacketUpdateMTLever() {
-		super(MTLInit.MTL.getModChannel());
+		super(CoreLib.MOD_CHANNEL);
 	}
 
 	public PacketUpdateMTLever(TileEntityMTLever tileentitymtlever) {
-		super(MTLInit.MTL.getModChannel(), tileentitymtlever);
+		super(CoreLib.MOD_CHANNEL, tileentitymtlever);
 	}
 }

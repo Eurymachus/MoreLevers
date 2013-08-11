@@ -3,17 +3,23 @@ package eurymachus.mtl.blocks;
 import java.util.List;
 import java.util.Random;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockLever;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.StepSound;
+import net.minecraft.client.particle.EffectRenderer;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.Icon;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.EnumGameType;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import slimevoid.lib.IContainer;
+import slimevoidlib.IContainer;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import eurymachus.mtl.core.MTLBlocks;
@@ -22,12 +28,14 @@ import eurymachus.mtl.core.MTLInit;
 import eurymachus.mtl.core.MTLItemLevers;
 import eurymachus.mtl.tileentities.TileEntityMTLever;
 
-public class BlockMTLever extends BlockLever implements IContainer {
+public class BlockMTLever extends BlockLever implements ITileEntityProvider {
+	
+	private Icon[] iconList;
 	Class mtLeverEntityClass;
 
 	public BlockMTLever(int blockId, Class leverClass, float hardness, StepSound sound, boolean disableStats, boolean requiresSelfNotify, String blockName) {
-		super(blockId, 96);
-		this.setBlockName(blockName);
+		super(blockId);
+		this.setUnlocalizedName(blockName);
 		this.isBlockContainer = true;
 		mtLeverEntityClass = leverClass;
 		setHardness(hardness);
@@ -36,23 +44,27 @@ public class BlockMTLever extends BlockLever implements IContainer {
 			disableStats();
 		}
 		if (requiresSelfNotify) {
-			setRequiresSelfNotify();
+			//setRequiresSelfNotify();
+		}
+	}
+	
+	@Override
+	public void registerIcons(IconRegister iconRegister) {
+		this.blockIcon = iconRegister.registerIcon("lever");
+		this.iconList = new Icon[MTLItemLevers.values().length];
+		for (int i = 0; i < iconList.length; i++) {
+			this.iconList[i] = iconRegister.registerIcon(MTLItemLevers.getTexture(i));
 		}
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public int getBlockTexture(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5) {
-		int itemdamage = MTLInit.getDamageValue(
+	public Icon getBlockTexture(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5) {
+		return this.iconList[MTLInit.getDamageValue(
 				par1IBlockAccess,
 				par2,
 				par3,
-				par4);
-		int texture = MTLItemLevers.getTexture(itemdamage);
-		if (texture >= 0) {
-			return texture;
-		}
-		return 22;
+				par4)];
 	}
 
 	@Override
@@ -66,10 +78,9 @@ public class BlockMTLever extends BlockLever implements IContainer {
 	}
 
 	@Override
-	public int getBlockTextureFromSideAndMetadata(int side, int meta) {
-		return MTLInit.MTL.getProxy().getBlockTextureFromSideAndMetadata(
-				side,
-				meta);
+	public Icon getIcon(int side, int meta) {
+		if (side == 1000) return this.blockIcon;
+		return this.iconList[meta];
 	}
 
 	@Override
@@ -80,7 +91,7 @@ public class BlockMTLever extends BlockLever implements IContainer {
 			int metadata = world.getBlockMetadata(x, y, z);
 			int side = metadata & 7;
 			int state = 8 - (metadata & 8);
-			world.setBlockMetadataWithNotify(x, y, z, side + state);
+			world.setBlockMetadataWithNotify(x, y, z, side + state, 0x3);
 			world.markBlockRangeForRenderUpdate(x, y, z, x, y, z);
 			world.playSoundEffect(
 					x + 0.5D,
@@ -186,4 +197,14 @@ public class BlockMTLever extends BlockLever implements IContainer {
 			}
 		}
 	}
+	
+    @SideOnly(Side.CLIENT)
+    public boolean addBlockHitEffects(World worldObj, MovingObjectPosition target, EffectRenderer effectRenderer) {
+    	return true;
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public boolean addBlockDestroyEffects(World world, int x, int y, int z, int meta, EffectRenderer effectRenderer) {
+    	return true;
+    }
 }
