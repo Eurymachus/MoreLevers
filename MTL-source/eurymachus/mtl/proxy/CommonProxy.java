@@ -17,7 +17,6 @@ import slimevoidlib.ICommonProxy;
 import slimevoidlib.IPacketHandling;
 import slimevoidlib.network.PacketIds;
 import cpw.mods.fml.common.network.Player;
-import eurymachus.mtl.core.MTLInit;
 import eurymachus.mtl.network.ServerPacketHandler;
 import eurymachus.mtl.network.packets.PacketUpdateMTLever;
 
