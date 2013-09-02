@@ -2,12 +2,15 @@ package eurymachus.mtl.proxy;
 
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
+import java.io.File;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.INetworkManager;
+import net.minecraft.network.NetLoginHandler;
 import net.minecraft.network.packet.NetHandler;
 import net.minecraft.network.packet.Packet1Login;
 import net.minecraft.network.packet.Packet250CustomPayload;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import slimevoidlib.ICommonProxy;
@@ -43,12 +46,7 @@ public class CommonProxy implements ICommonProxy {
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		return null;
 	}
-
-	@Override
-	public int getBlockTextureFromSideAndMetadata(int side, int meta) {
-		return getBlockTextureFromMetadata(meta);
-	}
-
+	
 	@Override
 	public void onPacketData(INetworkManager manager, Packet250CustomPayload packet, Player player) {
 		DataInputStream data = new DataInputStream(new ByteArrayInputStream(
@@ -76,52 +74,66 @@ public class CommonProxy implements ICommonProxy {
 	public IPacketHandling getPacketHandler() {
 		return new ServerPacketHandler();
 	}
-
-	@Override
-	public World getWorld() {
-		return null;
-	}
-
-	@Override
-	public World getWorld(NetHandler handler) {
-		return null;
-	}
-
-	@Override
-	public EntityPlayer getPlayer() {
-		return null;
-	}
-
-	@Override
-	public void login(NetHandler handler, INetworkManager manager, Packet1Login login) {
-	}
-
+	
 	@Override
 	public void registerTickHandler() {
 	}
 
 	@Override
-	public void displayTileEntityGui(EntityPlayer entityplayer, TileEntity tileentity) {
-	}
-
-	@Override
-	public int getBlockTextureFromMetadata(int meta) {
-		return 0;
-	}
-
-	public int getMouseOver() {
-		return 0;
-	}
-
-	public int getBelowPlayer(EntityPlayer player) {
-		return 0;
-	}
-
-	public int getAtPlayer(EntityPlayer player) {
-		return 0;
-	}
-
-	@Override
 	public void preInit() {
 	}
+
+	@Override
+	public void registerConfigurationProperties(File configFile) {
+		// TODO :: Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean isClient(World world) {
+		// TODO :: Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void playerLoggedIn(Player player, NetHandler netHandler,
+			INetworkManager manager) {
+		// TODO :: Auto-generated method stub
+		
+	}
+
+	@Override
+	public String connectionReceived(NetLoginHandler netHandler,
+			INetworkManager manager) {
+		// TODO :: Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void connectionOpened(NetHandler netClientHandler, String server,
+			int port, INetworkManager manager) {
+		// TODO :: Auto-generated method stub
+		
+	}
+
+	@Override
+	public void connectionOpened(NetHandler netClientHandler,
+			MinecraftServer server, INetworkManager manager) {
+		// TODO :: Auto-generated method stub
+		
+	}
+
+	@Override
+	public void connectionClosed(INetworkManager manager) {
+		// TODO :: Auto-generated method stub
+		
+	}
+
+	@Override
+	public void clientLoggedIn(NetHandler clientHandler,
+			INetworkManager manager, Packet1Login login) {
+		// TODO :: Auto-generated method stub
+		
+	}
+	
 }

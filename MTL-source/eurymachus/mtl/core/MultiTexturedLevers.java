@@ -9,7 +9,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import eurymachus.mtl.core.lib.CoreLib;
-import eurymachus.mtl.network.MTLConnection;
+import eurymachus.mtl.proxy.CommonProxy;
 
 @Mod(
 		modid = CoreLib.MOD_ID,
@@ -20,8 +20,8 @@ import eurymachus.mtl.network.MTLConnection;
 		clientSideRequired = true,
 		serverSideRequired = false,
 		channels = { CoreLib.MOD_CHANNEL },
-		packetHandler = MTLConnection.class,
-		connectionHandler = MTLConnection.class)
+		packetHandler = CommonProxy.class,
+		connectionHandler = CommonProxy.class)
 public class MultiTexturedLevers {
 	@SidedProxy(
 			clientSide = CoreLib.CLIENT_PROXY,
